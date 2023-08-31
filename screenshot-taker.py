@@ -49,3 +49,7 @@ elif option == 2:
 
 else:
     print("Wrong Input")
+
+
+
+print("Thank you for use it")
