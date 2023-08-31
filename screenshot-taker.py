@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from PIL import Image
+import urllib.parse
 
 print("""
 Please Enter the followings
@@ -16,13 +17,19 @@ if option == 1:
     options.add_argument('-headless')  # Run Firefox in headless mode
     driver = webdriver.Firefox(options=options)
     
-    driver.get(subdomain)
-    
-    screenshot = driver.get_screenshot_as_png()
-    screenshot_path = f"{subdomain}.png"
-    
-    with open(screenshot_path, "wb") as f:
-        f.write(screenshot)
+    try:
+        driver.get(subdomain)
+        
+        screenshot = driver.get_screenshot_as_png()
+        domain_name = subdomain.replace('http://', '').replace('https://', '').replace('.', '_')
+        screenshot_filename = f"{domain_name}.png"
+        
+        with open(screenshot_filename, "wb") as f:
+            f.write(screenshot)
+            
+        print(f"Screenshot saved for {subdomain}")
+    except Exception as e:
+        print(f"Error capturing screenshot for {subdomain}: {e}")
     
     # Close the browser
     driver.quit()
@@ -36,13 +43,21 @@ elif option == 2:
     driver = webdriver.Firefox(options=options)
 
     for sub in subdomains:
-        driver.get("http://" + sub)
+        sub = sub.strip()  # Remove leading/trailing spaces if any
         
-        screenshot = driver.get_screenshot_as_png()
-        screenshot_path = f"{sub}.png"
-        
-        with open(screenshot_path, "wb") as f:
-            f.write(screenshot)
+        try:
+            driver.get(sub)
+            
+            screenshot = driver.get_screenshot_as_png()
+            domain_name = sub.replace('http://', '').replace('https://', '').replace('.', '_')
+            screenshot_filename = f"{domain_name}.png"
+            
+            with open(screenshot_filename, "wb") as f:
+                f.write(screenshot)
+                
+            print(f"Screenshot saved for {sub}")
+        except Exception as e:
+            print(f"Error capturing screenshot for {sub}: {e}")
         
     # Close the browser
     driver.quit()
@@ -50,6 +65,4 @@ elif option == 2:
 else:
     print("Wrong Input")
 
-
-
-print("Thank you for use it")
+print("Thank you for using it")
