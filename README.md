@@ -35,7 +35,8 @@ Follow these steps to set up and use the tool on your local machine.
 1. Open a terminal and navigate to the directory containing the script.
 
 2. Run the script:
-
+   
+`python3 screen-taker.py'
 
 3. Follow the on-screen instructions to choose between capturing screenshots for a single subdomain or multiple subdomains.
 
@@ -49,5 +50,9 @@ Follow these steps to set up and use the tool on your local machine.
 - Respect website terms of use and scraping policies when using this tool.
 - This script assumes you're running it on a Linux environment. If you're using another operating system, make the necessary adjustments.
 
+
+## Buy me a coffee
+
+https://www.buymeacoffee.com/shopsaver
 
 
