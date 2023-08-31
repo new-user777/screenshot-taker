@@ -20,9 +20,13 @@ Follow these steps to set up and use the tool on your local machine.
 
 ### Installation
 
-1. Clone the repository :git clonehttps://github.com/new-user777/screenshot-taker.git
+1. Clone the repository :
 
-2. Install the required packages using pip: pip install -r requirements.txt
+`git clonehttps://github.com/new-user777/screenshot-taker.git`
+
+2. Install the required packages using pip:
+   
+` pip install -r requirements.txt`
 
 3. Place the `geckodriver` executable in the same directory as the script. 
 
