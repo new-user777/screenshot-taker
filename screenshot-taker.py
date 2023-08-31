@@ -13,7 +13,7 @@ if option == 1:
     subdomain = input("[+] Enter the subdomain: ")
     
     options = Options()
-    options.headless = True  # Run Firefox in headless mode
+    options.add_argument('-headless')  # Run Firefox in headless mode
     driver = webdriver.Firefox(options=options)
     
     driver.get("http://" + subdomain)
@@ -32,7 +32,7 @@ elif option == 2:
     subdomains = open(subdomain_list_path, "r").read().splitlines()
 
     options = Options()
-    options.headless = True  # Run Firefox in headless mode
+    options.add_argument('-headless')  # Run Firefox in headless mode
     driver = webdriver.Firefox(options=options)
 
     for sub in subdomains:
