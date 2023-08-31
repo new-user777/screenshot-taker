@@ -16,7 +16,7 @@ if option == 1:
     options.add_argument('-headless')  # Run Firefox in headless mode
     driver = webdriver.Firefox(options=options)
     
-    driver.get("http://" + subdomain)
+    driver.get(subdomain)
     
     screenshot = driver.get_screenshot_as_png()
     screenshot_path = f"{subdomain}.png"
