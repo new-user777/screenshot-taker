@@ -2,10 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from PIL import Image
 
-# Print the GeckoDriver executable path (for verification)
-print("GeckoDriver Executable Path:")
-print(webdriver.Firefox(executable_path="geckodriver").capabilities['moz:webdriverClick'])
-
 print("""
 Please Enter the followings
 ***** Press 1 for a single domain *****
@@ -18,8 +14,9 @@ if option == 1:
     
     options = Options()
     options.headless = True  # Run Firefox in headless mode
-    driver = webdriver.Firefox(options=options, executable_path="geckodriver")  # Path to geckodriver executable
-    driver.get(subdomain)  # Using sub as the URL directly
+    driver = webdriver.Firefox(options=options)
+    
+    driver.get("http://" + subdomain)
     
     screenshot = driver.get_screenshot_as_png()
     screenshot_path = f"{subdomain}.png"
@@ -36,10 +33,10 @@ elif option == 2:
 
     options = Options()
     options.headless = True  # Run Firefox in headless mode
-    driver = webdriver.Firefox(options=options, executable_path="geckodriver")  # Path to geckodriver executable
+    driver = webdriver.Firefox(options=options)
 
     for sub in subdomains:
-        driver.get(sub)  # Using sub as the URL directly
+        driver.get("http://" + sub)
         
         screenshot = driver.get_screenshot_as_png()
         screenshot_path = f"{sub}.png"
