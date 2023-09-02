@@ -3,7 +3,7 @@ from selenium.webdriver.firefox.options import Options
 
 print("""
 *****Press 1 for a single domain*****
-*****Press 2 for list of subdomain*****
+*****Press 2 for list of subdomains*****
 make sure you have entered a the path correctly
 """)
 def capture_screenshots(option, subdomain=None, subdomain_list=None, output_path=None):
